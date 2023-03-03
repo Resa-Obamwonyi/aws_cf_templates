@@ -133,7 +133,7 @@ Resources:
                 VpcId: !Ref VPC
                 Tags: 
                     - Key: Name 
-                    Value: !Sub ${EnvironmentName} Public Routes
+                      Value: !Sub ${EnvironmentName} Public Routes
 
         DefaultPublicRoute: 
             Type: AWS::EC2::Route
@@ -161,7 +161,7 @@ Resources:
                 VpcId: !Ref VPC
                 Tags: 
                     - Key: Name 
-                    Value: !Sub ${EnvironmentName} Private Routes (AZ1)
+                      Value: !Sub ${EnvironmentName} Private Routes (AZ1)
 
         DefaultPrivateRoute1:
             Type: AWS::EC2::Route
@@ -182,7 +182,7 @@ Resources:
                 VpcId: !Ref VPC
                 Tags: 
                     - Key: Name 
-                    Value: !Sub ${EnvironmentName} Private Routes (AZ2)
+                      Value: !Sub ${EnvironmentName} Private Routes (AZ2)
 
         DefaultPrivateRoute2:
             Type: AWS::EC2::Route

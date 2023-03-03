@@ -1,7 +1,6 @@
 # How to execute shell scripts:
 # ./<file_name> argument_1 argument_2 argument_3
-# e.g ./create.sh lucidinfra cfimage.yml cfiparams.json
-
+# e.g ./scripts/create.sh lucidinfrachaltwo ./challenge_2/chaltwo.yml ./challenge_2/chaltwo_params.json
 
 AWSTemplateFormatVersion: 2010-09-09
 Description: Resa / This template deploys a structure based on the challenge 2 CF Image
@@ -97,7 +96,7 @@ Resources:
                 VpcId: !Ref VPC
                 Tags: 
                     - Key: Name 
-                    Value: !Sub ${EnvironmentName} Public Routes
+                      Value: !Sub ${EnvironmentName} Public Routes
         
         # create a private route table
         PrivateRouteTable:
@@ -106,7 +105,7 @@ Resources:
                 VpcId: !Ref VPC
                 Tags: 
                     - Key: Name 
-                    Value: !Sub ${EnvironmentName} Private Routes (AZ1)
+                      Value: !Sub ${EnvironmentName} Private Routes (AZ1)
         
         # create association between public subnet and public route table
         PublicSubnetRouteTableAssociation:
@@ -153,9 +152,9 @@ Outputs:
         Export:
           Name: !Sub ${EnvironmentName}-PUB-RT
 
-    VPCPrivateRouteTable1:
+    VPCPrivateRouteTable:
         Description: Private Routing AZ1
-        Value: !Ref PrivateRouteTable1
+        Value: !Ref PrivateRouteTable
         Export:
           Name: !Sub ${EnvironmentName}-PRI1-RT
 

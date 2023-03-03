@@ -1,7 +1,6 @@
 # How to execute shell scripts:
 # ./<file_name> argument_1 argument_2 argument_3
-# e.g ./create.sh lucidinfraprivate private.yml privateparams.json
-
+# e.g ./scripts/create.sh lucidinfraprivate ./private/private.yml ./private/privateparams.json
 
 AWSTemplateFormatVersion: 2010-09-09
 Description: Resa / This template deploys a private corporate cloud with an extension of the on-premises network
@@ -69,7 +68,7 @@ Resources:
                 VpcId: !Ref VPC
                 Tags: 
                     - Key: Name 
-                    Value: !Sub ${EnvironmentName} Private Routes (AZ1)
+                      Value: !Sub ${EnvironmentName} Private Routes (AZ1)
 
         DefaultPrivateRoute1:
             Type: AWS::EC2::Route
@@ -90,7 +89,7 @@ Resources:
                 VpcId: !Ref VPC
                 Tags: 
                     - Key: Name 
-                    Value: !Sub ${EnvironmentName} Private Routes (AZ2)
+                      Value: !Sub ${EnvironmentName} Private Routes (AZ2)
 
         DefaultPrivateRoute2:
             Type: AWS::EC2::Route
@@ -121,7 +120,7 @@ Resources:
                 Type: ipsec.1
                 Tags:
                     - Key: Name
-                    Value: !Sub "${EnvironmentName} Amazon-side Gateway"
+                      Value: !Sub "${EnvironmentName} Amazon-side Gateway"
         
         AttachVpnGateway:
             Type: AWS::EC2::VPCGatewayAttachment
@@ -138,7 +137,7 @@ Resources:
                 IpAddress: !Ref 'OnPremGateway'
                 Tags:
                     - Key: Name
-                    Value: !Sub "${EnvironmentName} On Prem Gateway"
+                      Value: !Sub "${EnvironmentName} On Prem Gateway"
                 Type: ipsec.1
 
 
