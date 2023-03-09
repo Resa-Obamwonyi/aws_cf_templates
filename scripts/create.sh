@@ -3,5 +3,5 @@ aws cloudformation create-stack \
 --template-body file://$2 \
 --parameters file://$3 \
 --region=us-east-1 \
---profile udacity1 \
+--profile udacity1 \ 
 --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
